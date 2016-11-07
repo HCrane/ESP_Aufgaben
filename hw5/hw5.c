@@ -1,7 +1,7 @@
 //------------------------------------------------------------------------------
 // hw5.c
 //
-// Bitoperations
+// Bit Shifting
 //
 // Group: 3 study assistant Lorenz Kofler
 //
