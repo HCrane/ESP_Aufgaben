@@ -21,7 +21,7 @@
 int main()
 {
   int matr = 1430683;
-  int i = 2;
+  int i = 0;
   int overf = 0;
 
   //startet teil1 mit *
@@ -30,7 +30,7 @@ int main()
     //checkt auf overflowerror
     if ((INT_MAX / i) < matr)
     {
-      //ausgabe bei overflowerror
+      printf("%10d * %d \n", matr,i);
       printf("An overflow has occurred!\n");
       overf = 1;
       break;
