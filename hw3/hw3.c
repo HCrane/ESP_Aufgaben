@@ -30,14 +30,14 @@ int main()
     //checkt auf overflowerror
     if ((INT_MAX / i) < matr)
     {
-      printf("%10d * %d \n", matr,i);
+      printf("%10d * %d\n", matr,i);
       printf("An overflow has occurred!\n");
       overf = 1;
       break;
     }
     else
     {
-      printf("%10d * %d \n", matr,i);
+      printf("%10d * %d\n", matr,i);
       matr = matr * i;
     }
   }
@@ -47,7 +47,7 @@ int main()
   {
     if (!overf)
     {
-      printf("%10d : %d \n", matr,i);
+      printf("%10d : %d\n", matr,i);
       matr = matr / i;
     }
   }
