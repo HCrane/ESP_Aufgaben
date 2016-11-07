@@ -11,6 +11,7 @@
 //-----------------------------------------------------------------------------
 #include <stdio.h>
 #include <stdlib.h>
+#include <limits.h>
 
 int fibonacci(int fibo_nr);
 void iterativeDivision(int divident, int divisor);
@@ -90,16 +91,30 @@ void iterativeDivision(int divident, int divisor)
   int division_result = 0;
   int rest = divident;
 
-  if (rest != 0) {
-    while (rest >= divisor)
+  if (rest != 0 && divisor != 0) {
+    if (rest < 0)
     {
-      rest -= divisor;
-      division_result++;
+      rest = rest * (-1);
+      while (rest >= divisor)
+      {
+        rest -= divisor;
+        division_result++;
+      }
+      division_result = division_result * (-1);
     }
+    else
+    {
+      while (rest >= divisor)
+      {
+        rest -= divisor;
+        division_result++;
+      }
+    }
+
   }
   else
   {
-    division_result = 0;
+    division_result = INT_MAX;
   }
 
   printf("Integer division: %d / %d = %d\n",
@@ -132,6 +147,7 @@ int fibonacci(int fibo_nr)
   }
   else
   {
-    return ((-1)^(fibo_nr + 1)) * fibonacci((-1)*fibo_nr);
+    //TODO fix output something is off
+    return ((-1)^((-1)*fibo_nr + 1)) * fibonacci((-1)*fibo_nr);
   }
 }
