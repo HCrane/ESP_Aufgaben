@@ -1,7 +1,7 @@
 //------------------------------------------------------------------------------
 // hw6.c
 //
-// reading from file and return gibberish
+// reading from file and return backwards
 //
 // Group: 3 study assistant Lorenz Kofler
 //
