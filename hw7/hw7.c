@@ -15,6 +15,7 @@
 
 int fibonacci(int fibo_nr);
 void iterativeDivision(int divident, int divisor);
+int powByHand(int base, int exponent);
 
 //-----------------------------------------------------------------------------
 /// Main program that checks for errors in the cmd parameters
@@ -147,7 +148,36 @@ int fibonacci(int fibo_nr)
   }
   else
   {
-    //TODO fix output something is off
-    return ((-1)^((-1)*fibo_nr + 1)) * fibonacci((-1)*fibo_nr);
+    int positive_fibo_nr = (-1)*fibo_nr;
+    return (powByHand((-1),positive_fibo_nr + 1) *
+                      fibonacci(positive_fibo_nr));
   }
+}
+
+//-----------------------------------------------------------------------------
+/// By hand imlementation because of the restriction for not using
+/// math.h
+///
+/// @param  base     the base of the number
+/// @param  exponent the exponent of the number
+/// @return result   result of the powByHand Function
+//-----------------------------------------------------------------------------
+
+int powByHand(int base, int exponent)
+{
+  int result = base;
+  int i;
+
+  if (exponent == 0)
+  {
+    return 0;
+  }
+  else
+  {
+    for (i = 1; i < exponent; ++i)
+    {
+      result *= base;
+    }
+  }
+  return result;
 }
