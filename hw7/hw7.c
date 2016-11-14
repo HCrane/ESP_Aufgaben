@@ -7,7 +7,7 @@
 //
 // Authors: Emanuel Moser 1430683
 //
-// Latest Changes: 07.11.2016 (by Emanuel Moser)
+// Latest Changes: 14.11.2016 (by Emanuel Moser)
 //-----------------------------------------------------------------------------
 #include <stdio.h>
 #include <stdlib.h>
@@ -27,23 +27,25 @@ int powByHand(int base, int exponent);
 //-----------------------------------------------------------------------------
 int main(int argc, char const *argv[])
 {
-  int check;
   if (argc > 3)
   {
     printf("Wrong parameter count! 2 expected, %d given.\n", argc - 1);
     return -1;
   }
-  else if (argc <= 2)
+  else if (argc < 3)
   {
     printf("Wrong parameter count! 2 expected, %d given.\n", argc - 1);
     return -1;
   }
   else
   {
-    if (sscanf(argv[1], "%d", &check) && sscanf(argv[2], "%d", &check))
+    char* error1;
+    char* error2;
+    int first = strtol(argv[1], &error1, 10);
+    int second = strtol(argv[2], &error2, 10);
+
+    if (!*error1 && !*error2)
     {
-      int first = atoi(argv[1]);
-      int second = atoi(argv[2]);
 
       if (first <= 40 && first >= -40)
       {
@@ -71,6 +73,7 @@ int main(int argc, char const *argv[])
     else
     {
       printf("Wrong parameter type! Expected type is int.\n");
+      return -2;
     }
   }
 
@@ -116,6 +119,7 @@ void iterativeDivision(int divident, int divisor)
   else
   {
     division_result = INT_MAX;
+    rest = 0;
   }
 
   printf("Integer division: %d / %d = %d\n",
@@ -135,7 +139,11 @@ void iterativeDivision(int divident, int divisor)
 //-----------------------------------------------------------------------------
 int fibonacci(int fibo_nr)
 {
-  if (fibo_nr >= 0)
+  if (fibo_nr == 0)
+  {
+    return 0;
+  }
+  if (fibo_nr > 0)
   {
     if (fibo_nr <= 2)
     {
